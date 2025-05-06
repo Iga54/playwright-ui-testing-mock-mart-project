@@ -1,0 +1,37 @@
+{
+  "name": "pw-mock-mart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "format": "npx prettier --write .",
+    "format:check": "npx prettier . --check '!**.ts'",
+    "lint": "npx eslint . --max-warnings 0",
+    "tsc:check": "npx tsc --noEmit --pretty --strict",
+    "prepare": "husky",
+    "test": "npx playwright test",
+    "test:headed": "npm run test -- --headed",
+    "test:ui": "npm run test -- --ui",
+    "show-report": "npx playwright show-report"
+  },
+  "author": "iga",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.25.1",
+    "@faker-js/faker": "^9.7.0",
+    "@playwright/test": "^1.52.0",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
+    "@types/node": "^22.15.3",
+    "eslint": "^9.25.1",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-playwright": "^2.2.0",
+    "eslint-plugin-prettier": "^5.2.6",
+    "globals": "^16.0.0",
+    "husky": "^9.1.7",
+    "prettier": "3.5.3",
+    "typescript-eslint": "^8.31.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0"
+  }
+}
