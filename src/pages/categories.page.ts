@@ -4,7 +4,7 @@ import { BasePage } from 'src/pages/base.page';
 
 export class CategoriesPage extends BasePage {
   url = '/categories';
-  mainMenuComponent = new MainMenuComponent(this.page);
+  mainMenu = new MainMenuComponent(this.page);
 
   categoriesText = this.page.getByRole('heading', { name: 'Categories' });
 

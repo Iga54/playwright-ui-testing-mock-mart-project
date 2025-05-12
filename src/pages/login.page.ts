@@ -6,7 +6,7 @@ import { HomePage } from 'src/pages/home.page';
 
 export class LoginPage extends BasePage {
   url = '/signin';
-  mainMenuComponent = new MainMenuComponent(this.page);
+  mainMenu = new MainMenuComponent(this.page);
 
   signInText = this.page.getByRole('heading', { name: 'Sign In' });
   userEmailInput = this.page.getByRole('textbox', { name: 'Email address' });
