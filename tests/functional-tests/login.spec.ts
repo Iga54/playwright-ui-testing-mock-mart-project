@@ -17,7 +17,7 @@ test.describe('login verification', async () => {
     const homePage = await loginPage.loginUser(testUser1);
 
     //Assert:
-    expect(homePage.mainMenuComponent.userGreeting).toBeVisible();
+    await expect(homePage.mainMenuComponent.userGreeting).toBeVisible();
   });
 
   test('user can not login with incorrect email', async ({ page }) => {
@@ -29,7 +29,7 @@ test.describe('login verification', async () => {
     await loginPage.loginUser(testUser1);
 
     //Assert:
-    expect(loginPage.loginErrorMessage).toHaveText(expectedErrorMessage);
+    await expect(loginPage.loginErrorMessage).toHaveText(expectedErrorMessage);
   });
 
   test('user can not login with incorrect password', async ({ page }) => {
@@ -41,6 +41,6 @@ test.describe('login verification', async () => {
     await loginPage.loginUser(testUser1);
 
     //Assert:
-    expect(loginPage.loginErrorMessage).toHaveText(expectedErrorMessage);
+    await expect(loginPage.loginErrorMessage).toHaveText(expectedErrorMessage);
   });
 });
