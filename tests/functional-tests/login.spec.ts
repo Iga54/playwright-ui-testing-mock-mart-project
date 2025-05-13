@@ -17,7 +17,7 @@ test.describe('login verification', async () => {
     const homePage = await loginPage.loginUser(testUser1);
 
     //Assert:
-    await expect(homePage.mainMenuComponent.userGreeting).toBeVisible();
+    await expect(homePage.mainMenu.userGreeting).toBeVisible();
   });
 
   test('user can not login with incorrect email', async ({ page }) => {
