@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 import { HomePage } from 'src/pages/home.page';
 import { RegisterPage } from 'src/pages/register.page';
 
-test.describe('checking the navigation menu functionalities from home page', async () => {
+test.describe('checking the navigation menu functionalities from home page', () => {
   let homePage: HomePage;
   test.beforeEach(async ({ page }) => {
     homePage = new HomePage(page);
@@ -15,7 +15,7 @@ test.describe('checking the navigation menu functionalities from home page', asy
 
     //Act:
     const productsPage = await homePage.mainMenu.goToProductsPage();
-    
+
     //Assert:
     await expect(productsPage.productsPageHeader).toHaveText(
       expectedProductsText,

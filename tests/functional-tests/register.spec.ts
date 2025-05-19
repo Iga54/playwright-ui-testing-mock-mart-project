@@ -3,7 +3,7 @@ import { createRandomUser } from 'src/factories/user.factory';
 import { RegisterUserModel } from 'src/models/user.models';
 import { RegisterPage } from 'src/pages/register.page';
 
-test.describe('verification of user registration', async () => {
+test.describe('verification of user registration', () => {
   let registerPage: RegisterPage;
   let registerUserData: RegisterUserModel;
 

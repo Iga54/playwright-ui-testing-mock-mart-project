@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 import { LoginPage } from 'src/pages/login.page';
 import { testUser1 } from 'src/test-data/user-login-data';
 
-test.describe('login verification', async () => {
+test.describe('login verification', () => {
   let loginPage: LoginPage;
 
   test.beforeEach(async ({ page }) => {

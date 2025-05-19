@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { BASE_URL } from 'config/env.config';
 
-test.describe('checking basic UI functionalities', async () => {
+test.describe('checking basic UI functionalities', () => {
   test('home page loads', async ({ page }) => {
     //Act:
     await page.goto(BASE_URL);
