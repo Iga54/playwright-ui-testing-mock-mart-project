@@ -11,7 +11,7 @@ export class LoginPage extends BasePage {
   signInText = this.page.getByRole('heading', { name: 'Sign In' });
   userEmailInput = this.page.getByRole('textbox', { name: 'Email address' });
   userPasswordInput = this.page.getByRole('textbox', { name: 'Password' });
-  signInBtn = this.page.getByRole('button', { name: 'Sign in' });
+  signInButton = this.page.getByRole('button', { name: 'Sign in' });
 
   loginErrorMessage = this.page.getByText('Failed to sign in');
 
@@ -22,7 +22,8 @@ export class LoginPage extends BasePage {
   async loginUser(loginUserData: LoginUserModel): Promise<HomePage> {
     await this.userEmailInput.fill(loginUserData.userEmail);
     await this.userPasswordInput.fill(loginUserData.userPassword);
-    await this.signInBtn.click();
+    await this.signInButton.click();
+
     return new HomePage(this.page);
   }
 }
