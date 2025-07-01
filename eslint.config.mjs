@@ -1,8 +1,8 @@
 import pluginJs from '@eslint/js';
-import globals from 'globals';
-import tseslint from 'typescript-eslint';
 import eslintPluginPlaywright from 'eslint-plugin-playwright';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
 /** @type {import('eslint').Linter.Config[]} */
 
