@@ -19,27 +19,26 @@ test.describe('checking basic UI functionalities', () => {
       page.getByRole('heading', { name: 'This page could not be found.' }),
     ).toBeVisible();
   });
+});
+
+test.describe('checking visibility of page elements', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto(BASE_URL);
+  });
 
   test('footer is visible on the page', async ({ page }) => {
-    //Act:
-    await page.goto(BASE_URL);
-
     //Assert:
     await expect(page.getByText('© 2025 MockMart. All rights')).toBeVisible();
   });
 
   test('site logo is visible on the page', async ({ page }) => {
-    //Act:
-    await page.goto(BASE_URL);
-
     //Assert:
     await expect(page.getByRole('link', { name: 'Mock Mart' })).toBeVisible();
   });
 
   test('search field is visible on the page', async ({ page }) => {
     //Act:
-    await page.goto(BASE_URL);
-
+    await page.goto('http://localhost:3000/products');
     //Assert:
     await expect(
       page.getByRole('textbox', { name: 'Search products...' }),
@@ -47,12 +46,11 @@ test.describe('checking basic UI functionalities', () => {
   });
 
   test('navigation menu is visible on the page', async ({ page }) => {
-    //Act:
-    await page.goto(BASE_URL);
-
     //Assert:
     await expect(
-      page.getByText('Mock MartProductsCategoriesSign InSign UpOpen main menu'),
+      page.getByText(
+        'Mock MartHomeProductsCategoriesSign InSign UpOpen main menu',
+      ),
     ).toBeVisible();
   });
 });
