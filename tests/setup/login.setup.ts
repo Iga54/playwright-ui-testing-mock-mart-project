@@ -5,7 +5,7 @@ import { testUser1 } from 'src/test-data/user-login-data';
 
 setup('login and save session', async ({ page }) => {
   //Arrange:
-  const expectedGreeting = '';
+  const expectedGreeting = 'Welcome to MockMart';
   const loginPage = new LoginPage(page);
 
   //Act:
@@ -13,8 +13,7 @@ setup('login and save session', async ({ page }) => {
   const homePage = await loginPage.loginUser(testUser1);
 
   //Assert:
-  await expect(homePage.homePageText).toBeVisible();
-  await expect(homePage.mainMenu.userGreeting).toHaveText(expectedGreeting);
+  await expect(homePage.homePageText).toHaveText(expectedGreeting);
 
   await page.context().storageState({ path: STORAGE_STATE });
 });
