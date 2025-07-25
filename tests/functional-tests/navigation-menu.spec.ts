@@ -1,8 +1,10 @@
 import { expect, test } from '@playwright/test';
 import { HomePage } from 'src/pages/home.page';
+import { LoginPage } from 'src/pages/login.page';
 import { RegisterPage } from 'src/pages/register.page';
+import { testUser1 } from 'src/test-data/user-login-data';
 
-test.describe('checking the navigation menu functionalities from home page', () => {
+test.describe('checking the navigation menu functionalities from home page without logging', () => {
   let homePage: HomePage;
   test.beforeEach(async ({ page }) => {
     homePage = new HomePage(page);
@@ -44,8 +46,6 @@ test.describe('checking the navigation menu functionalities from home page', () 
   });
 
   test('sign up link navigates to register page from home page', async ({}) => {
-    //Arrange:
-
     //Act:
     const registerPage = await homePage.mainMenu.goToRegisterPage();
 
@@ -54,7 +54,7 @@ test.describe('checking the navigation menu functionalities from home page', () 
   });
 });
 
-test.describe('checking the navigation menu functionalities from register page to home page', async () => {
+test.describe('checking the navigation menu functionalities from register page to home page without logging', async () => {
   let registerPage: RegisterPage;
   test.beforeEach(async ({ page }) => {
     registerPage = new RegisterPage(page);
@@ -81,5 +81,21 @@ test.describe('checking the navigation menu functionalities from register page t
 
     //Assert:
     await expect(homePage.homePageText).toHaveText(expectedHomePageText);
+  });
+});
+
+test.describe('checking the navigation menu functionalities - logging out from navigation menu', async () => {
+  let loginPage: LoginPage;
+  test('user can sign out', async ({ page }) => {
+    //Arrange:
+    loginPage = new LoginPage(page);
+    await loginPage.goto();
+    const homePage = await loginPage.loginUser(testUser1);
+
+    //Act:
+    await homePage.mainMenu.signOut.click();
+
+    //Assert:
+    await expect(homePage.mainMenu.signInLink).toBeVisible();
   });
 });
