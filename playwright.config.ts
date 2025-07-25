@@ -33,6 +33,11 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'], storageState: STORAGE_STATE },
     },
     {
+      name: 'chromium-non-logged',
+      grepInvert: /@logged/,
+      use: { ...devices['Desktop Chrome'] },
+    },
+    {
       name: 'setup',
       testMatch: '*.setup.ts',
     },
