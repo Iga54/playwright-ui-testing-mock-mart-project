@@ -14,6 +14,7 @@ export class MainMenuComponent {
   logoutButton: Locator;
   signInLink: Locator;
   signUpLink: Locator;
+  signOutLink: Locator;
 
   constructor(private page: Page) {
     this.siteLogo = this.page.getByRole('link', { name: 'Mock Mart' });
@@ -30,7 +31,9 @@ export class MainMenuComponent {
     this.logoutButton = this.page.getByRole('button', { name: 'Sign Out' });
     this.signInLink = this.page.getByRole('link', { name: 'Sign In' });
     this.signUpLink = this.page.getByRole('link', { name: 'Sign Up' });
+    this.signOutLink = this.page.getByRole('button', { name: 'Sign Out' });
   }
+
   async goToLoginPage() {
     await this.signInLink.click();
 

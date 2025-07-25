@@ -93,7 +93,7 @@ test.describe('checking the navigation menu functionalities - logging out from n
     const homePage = await loginPage.loginUser(testUser1);
 
     //Act:
-    await homePage.mainMenu.signOut.click();
+    await homePage.mainMenu.signOutLink.click();
 
     //Assert:
     await expect(homePage.mainMenu.signInLink).toBeVisible();
