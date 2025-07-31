@@ -1,5 +1,6 @@
 import { Locator, Page } from '@playwright/test';
 import { CommentModel } from 'src/models/comment.model';
+import { ProductPage } from 'src/pages/product.page';
 
 export class AddCommentView {
   bodyInput: Locator;
@@ -18,8 +19,10 @@ export class AddCommentView {
     });
   }
 
-  async createComment(commentData: CommentModel): Promise<void> {
+  async createComment(commentData: CommentModel): Promise<ProductPage> {
     await this.bodyInput.fill(commentData.body);
     await this.postCommentButton.click();
+
+    return new ProductPage(this.page);
   }
 }
