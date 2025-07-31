@@ -15,7 +15,7 @@ export class ProductsPage extends BasePage {
   }
 
   async pickOneProduct() {
-    this.productCardLink.click();
+    await this.productCardLink.click();
 
     return new ProductPage(this.page);
   }
