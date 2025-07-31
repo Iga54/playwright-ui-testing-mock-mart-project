@@ -1,7 +1,9 @@
 import { Locator, Page } from '@playwright/test';
 import { BasePage } from 'src/pages/base.page';
+import { AddCommentView } from 'src/views/add-comment.view';
+import { EditCommentView } from 'src/views/edit-comment.view';
 
-interface UserComment {
+export interface UserComment {
   body: Locator;
 }
 export class ProductPage extends BasePage {
@@ -28,20 +30,17 @@ export class ProductPage extends BasePage {
       body: commentContainer,
     };
   }
-  async clickEditCommentButton(body: string) {
-    // await this.page.reload();
-    // const comment = await this.page.getByText(body);
-    await this.page.reload({ waitUntil: 'domcontentloaded' });
-    await this.page
-      .getByText(body)
-      .getByRole('button', { name: 'Edit' })
-      .click();
+  async clickAddCommentButton(): Promise<AddCommentView> {
+    await this.addCommentButton.click();
 
-    // .locator('.bg-white.p-4.rounded-lg.shadow')
-    // .filter({
-    //   hasText: body,
-    // })
-    // .getByRole('button', { name: 'Edit' })
-    // .click();
+    return new AddCommentView(this.page);
+  }
+  async clickEditCommentButton(body: string): Promise<EditCommentView> {
+    const commentContainer = this.page
+      .locator('.bg-white.p-4.rounded-lg.shadow')
+      .filter({ hasText: body });
+    await commentContainer.getByRole('button', { name: 'Edit' }).click();
+
+    return new EditCommentView(this.page);
   }
 }
