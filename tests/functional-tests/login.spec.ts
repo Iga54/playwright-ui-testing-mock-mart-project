@@ -11,8 +11,6 @@ test.describe('login verification', () => {
   });
 
   test('user can login with correct data', async ({ page }) => {
-    //Arrange:
-
     //Act:
     const homePage = await loginPage.loginUser(testUser1);
 
