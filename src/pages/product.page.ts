@@ -10,12 +10,13 @@ export class ProductPage extends BasePage {
   url = '/products/1';
 
   addCommentButton = this.page.getByRole('button', { name: 'Add Comment' });
-  jewelryCategoryButton = this.page.getByRole('button', { name: 'jewelery' });
 
   productTitle = this.page.getByRole('heading', {
     name: 'Fjallraven - Foldsack No. 1',
   });
   productPrice = this.page.getByText('$');
+
+  addToCartButton = this.page.getByRole('button', { name: 'Add to Cart' });
 
   constructor(page: Page) {
     super(page);
