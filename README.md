@@ -1,4 +1,5 @@
-# Mock Mart store - Testing Project
+# Mock Mart store - UI automation testing project with Playwright
+
 
 This project contains automated tests for an online store application - Mock Mart. The goal is to ensure the most critical user journeys work as expected, covering end-to-end, functional, and smoke test types. Some files, such as README.md are in progress.
 
@@ -9,6 +10,15 @@ This project contains automated tests for an online store application - Mock Mar
 - **Test Runner:** Playwright
 - **Language:** TypeScript
 - **Assertion Library:** Built-in Playwright
+
+---
+
+## Features
+
+- Functional tests
+- Smoke tests
+- Page Object Model structure
+- Session handling with storageState
 
 ---
 
