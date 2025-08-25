@@ -1,5 +1,6 @@
 import { Locator, Page } from '@playwright/test';
 import { BasePage } from 'src/pages/base.page';
+import { HomePage } from 'src/pages/home.page';
 import { AddCommentView } from 'src/views/add-comment.view';
 import { EditCommentView } from 'src/views/edit-comment.view';
 
@@ -17,6 +18,24 @@ export class ProductPage extends BasePage {
   productPrice = this.page.getByText('$');
 
   addToCartButton = this.page.getByRole('button', { name: 'Add to Cart' });
+
+  backToProductsButton = this.page.getByRole('link', {
+    name: 'Back to Products',
+  });
+
+  productCategoryInfo = this.page
+    .locator('.text-gray-600.mb-4.capitalize')
+    .filter({ hasText: "men's clothing" });
+
+  productReviewInfo = this.page
+    .locator('div')
+    .filter({ hasText: /^4\.0 \(1 review\)$/ });
+
+  productPriceInfo = this.page
+    .locator('.text-2xl.font-bold.text-blue-600.mb-6')
+    .filter({ hasText: '$' });
+
+  productDescriptionInfo = this.page.getByText('Your perfect pack for');
 
   constructor(page: Page) {
     super(page);
@@ -43,5 +62,11 @@ export class ProductPage extends BasePage {
     await commentContainer.getByRole('button', { name: 'Edit' }).click();
 
     return new EditCommentView(this.page);
+  }
+
+  async clickBackToProducts(): Promise<HomePage> {
+    await this.backToProductsButton.click();
+
+    return new HomePage(this.page);
   }
 }
