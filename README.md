@@ -3,7 +3,6 @@
 
 This project contains automated tests for an online store application - Mock Mart. The goal is to ensure the most critical user journeys work as expected, covering end-to-end, functional, and smoke test types. Some files, such as README.md are in progress.
 
----
 
 ## Tech Stack
 
@@ -11,7 +10,6 @@ This project contains automated tests for an online store application - Mock Mar
 - **Language:** TypeScript
 - **Assertion Library:** Built-in Playwright
 
----
 
 ## Features
 
@@ -24,7 +22,8 @@ This project contains automated tests for an online store application - Mock Mar
 
 ## Getting Started
 
-Repository: https://github.com/Iga54/PW-mock-mart
+Repository: https://github.com/Iga54/playwright-ui-testing-mock-mart-project
+
 Follow instructions in app README
 
 ## Project configuration
