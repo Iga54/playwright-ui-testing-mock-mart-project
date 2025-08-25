@@ -34,7 +34,7 @@ docker compose up
 4. The first step is to run a command ```npm install``` in console
 5. Docker should be enabled on computer
 6. The next issue is running scripts mentioned below:
-- to run all tests ```npm run testAll```
+- to run all tests ```npx playwright test```
 
 ### Local recommended tools:
 
