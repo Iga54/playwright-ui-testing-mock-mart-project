@@ -41,5 +41,11 @@ export default defineConfig({
       name: 'setup',
       testMatch: '*.setup.ts',
     },
+    {
+      name: 'api/products',
+      grep: /@api-products/,
+      testDir: 'tests/api',
+      use: { extraHTTPHeaders: { Accept: 'application/json' } },
+    },
   ],
 });
