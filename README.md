@@ -59,11 +59,7 @@ git clone https://github.com/Iga54/playwright-ui-testing-mock-mart-project.git
 2. Type commands in terminal within mock_mart folder
 
 ```bash
-docker compose build
-```
-
-```bash
-docker compose up
+ docker compose up --build  
 ```
 
 3. Switch back to the project folder with mock_mart tests
