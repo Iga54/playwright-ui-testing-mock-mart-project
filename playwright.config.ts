@@ -29,7 +29,7 @@ export default defineConfig({
     {
       name: 'chromium-logged',
       grep: /@logged/,
-      dependencies: ['setup'],
+      dependencies: ['setup-ui'],
       use: { ...devices['Desktop Chrome'], storageState: STORAGE_STATE },
     },
     {
@@ -38,14 +38,28 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
     {
-      name: 'setup',
-      testMatch: '*.setup.ts',
+      name: 'setup-ui',
+      testMatch: '**/ui/**/*.setup.ts',
+    },
+    {
+      name: 'setup-api',
+      testMatch: '**/api/**/*.setup.ts',
     },
     {
       name: 'api/products',
       grep: /@api-products/,
       testDir: 'tests/api',
       use: { extraHTTPHeaders: { Accept: 'application/json' } },
+    },
+    {
+      name: 'api/comments',
+      grep: /@api-comments/,
+      dependencies: ['setup-api'],
+      testDir: 'tests/api',
+      use: {
+        extraHTTPHeaders: { Accept: 'application/json' },
+        storageState: 'tmp/auth.json',
+      },
     },
   ],
 });
