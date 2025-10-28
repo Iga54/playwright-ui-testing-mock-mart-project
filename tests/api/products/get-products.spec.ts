@@ -1,4 +1,4 @@
-import test, { expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test.describe('GET/api/products', () => {
   test('@api-products, should return status code 200 and at least 10 products', async ({
