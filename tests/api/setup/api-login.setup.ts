@@ -2,7 +2,7 @@
 import { expect, test as setup } from '@playwright/test';
 import { userSignUpData } from 'src/test-data/api-signup-data';
 
-const authFile = 'tmp/auth.json';
+// export const authFile = 'tmp/auth.json';
 
 setup('authenticates a user and creates a session', async ({ request }) => {
   // Arrange:
@@ -19,5 +19,5 @@ setup('authenticates a user and creates a session', async ({ request }) => {
   //Assert:
   expect(response.status()).toBe(expectedStatusCode);
 
-  await request.storageState({ path: authFile });
+  await request.storageState({ path: 'tmp/auth.json' });
 });
