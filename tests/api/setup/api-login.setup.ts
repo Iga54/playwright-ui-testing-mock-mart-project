@@ -2,8 +2,6 @@
 import { expect, test as setup } from '@playwright/test';
 import { userSignUpData } from 'src/test-data/api-signup-data';
 
-// export const authFile = 'tmp/auth.json';
-
 setup('authenticates a user and creates a session', async ({ request }) => {
   // Arrange:
   const expectedStatusCode = 200;
