@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { faker } from 'node_modules/@faker-js/faker/dist/locale/en.cjs';
 
 test.describe('POST /api/comments', () => {
   test(
@@ -9,7 +10,7 @@ test.describe('POST /api/comments', () => {
       const expectedStatusCode = 200;
       const productId = 2;
       const payload = {
-        content: 'This is a great product!',
+        content: faker.lorem.sentence(),
       };
 
       //Act:
@@ -19,11 +20,15 @@ test.describe('POST /api/comments', () => {
           data: payload,
         },
       );
-      const responseBody = await response.json();
+
+      const createdCommentsResponse = await request.get(
+        `/api/products/${productId}/comments`,
+      );
+      const createdComments = await createdCommentsResponse.json();
 
       //Assert:
       expect(response.status()).toBe(expectedStatusCode);
-      expect(responseBody.content).toBe(payload.content);
+      expect(createdComments[0].content).toBe(payload.content);
     },
   );
 });
